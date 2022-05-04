@@ -16,9 +16,10 @@ namespace DarkMode
 
         private void 关于ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("作者：XiaoFans（一只小凡凡）, Melon Studio\n本程序独家首发于吾爱破解论坛，完全免费！", "关于");
+            MessageBox.Show("作者：XiaoFans（一只小凡凡）, Melon Studio", "关于");
         }
-
+        public static string lang = System.Globalization.CultureInfo.InstalledUICulture.Name;
+        public static string LanguageXz = Language.NowLanguage(lang);
         private void 开机自启ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //设置开机自启
@@ -84,19 +85,14 @@ namespace DarkMode
                 }
             }catch(Exception ex)
             {
-                MessageBox.Show("判断失败：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("失败：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
             //判断系统主题是否为自定义模式
             bool judge = judgeSystemColor();
             if (judge == true)
             {
-                DialogResult error = MessageBox.Show("检测到系统设置了系统主题模式为自定义模式，这将无法正常使用本程序，请将自定义模式改为”深色“或”浅色“后再打开本程序 。", "设置错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                if (error == DialogResult.OK)
-                {
-                    //结束程序
-                    Application.ExitThread();
-                }
+                MessageBox.Show("检测到系统设置了系统颜色模式为自定义，软件将修改您的自定义模式 。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             //启动计时器和定时器
             timer1.Interval = 1000;
@@ -146,6 +142,7 @@ namespace DarkMode
             }
             return false;
         }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             //获取当前主题色是否对应（接口）
