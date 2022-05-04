@@ -2,7 +2,7 @@
 
 ![](https://shields.io/badge/license-MIT-green)
 
-[中文简体(zh-CN)](https://gitee.com/melon_studio/darkmode/blob/master/README.md) | 中文繁體(zh-TW) | [English(EN)](https://gitee.com/melon_studio/darkmode/blob/master/README_EN.md) | [日本語(JP)](https://gitee.com/melon_studio/darkmode/blob/master/README_JP.md)
+[中文简体(zh-CN)](https://gitee.com/melon_studio/darkmode/blob/master/README.md) | 中文繁體(zh-TW) | [English(en-US)](https://gitee.com/melon_studio/darkmode/blob/master/README_EN.md) | [日本語(ja-JP)](https://gitee.com/melon_studio/darkmode/blob/master/README_JP.md)
 
 註明：因大陸普通用語和台灣地區用語存在差異，所以部分詞彙翻譯使用機器翻譯
 
