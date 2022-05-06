@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 using Microsoft.Win32;
 
@@ -9,6 +10,7 @@ namespace DarkMode
         public Form2()
         {
             InitializeComponent();
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(Language.NowLanguage().ToString());
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -24,6 +26,7 @@ namespace DarkMode
 
         private void button2_Click(object sender, EventArgs e)
         {
+            MessageBox.Show(StringText("String1"), StringText("String2"), MessageBoxButtons.OK, MessageBoxIcon.Information);
             //写入语言数据到注册表
             RegistryKey lang = Registry.CurrentUser.OpenSubKey(@"Software\DarkMode", true);
             if (radioButton1.Checked == true)
@@ -43,6 +46,8 @@ namespace DarkMode
                 lang.SetValue("Language", "en-US");
             }
             lang.Close();
+            Process.Start(Application.ExecutablePath);
+            Process.GetCurrentProcess().Kill();
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -69,6 +74,45 @@ namespace DarkMode
                 radioButton4.Checked = true;
             }
             key.Close();
+        }
+        //语言类
+        public static string StringText(string str)
+        {
+            string language = new System.Globalization.CultureInfo(Language.NowLanguage().ToString()).ToString();
+            if (language == "zh-CN" && str == "String1")
+            {
+                return "点击确定后，重启程序生效。";
+            }
+            if(language == "zh-TW" && str == "String1")
+            {
+                return "點擊確定後，重啓程式生效。";
+            }
+            if(language == "ja-JP" && str == "String1")
+            {
+                return "[OK]をクリックした後、ソフトウェアを再起動して有効にします。";
+            }
+            if(language == "en-US" && str == "String1")
+            {
+                return "After clicking OK, restart the software to take effect.";
+            }
+
+            if (language == "zh-CN" && str == "String2")
+            {
+                return "提示";
+            }
+            if (language == "zh-TW" && str == "String2")
+            {
+                return "提示";
+            }
+            if (language == "ja-JP" && str == "String2")
+            {
+                return "ソフト";
+            }
+            if (language == "en-US" && str == "String2")
+            {
+                return "Tips";
+            }
+            return "null";
         }
     }
 }

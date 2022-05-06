@@ -12,11 +12,12 @@ namespace DarkMode
             InitializeComponent();
             this.WindowState = FormWindowState.Minimized;
             this.ShowInTaskbar = false;
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(Language.NowLanguage().ToString());
         }
 
         private void 关于ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("作者：XiaoFans（一只小凡凡）, Melon Studio", "关于");
+            MessageBox.Show(Language.StringText("String1"), Language.StringText("String2"));
         }
         private void 开机自启ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -43,7 +44,7 @@ namespace DarkMode
             }
             catch(Exception ex)
             {
-                MessageBox.Show("设置失败：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Language.StringText("String3") + ex.Message, Language.StringText("String4"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -54,6 +55,36 @@ namespace DarkMode
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            string language = new System.Globalization.CultureInfo(Language.NowLanguage().ToString()).ToString();
+            if (language == "zh-CN")
+            {
+                SettingsToolStripMenuItem.Text = "设置";
+                SelfOnToolStripMenuItem.Text = "开机自启";
+                AboutToolStripMenuItem.Text = "关于";
+                ExitToolStripMenuItem.Text = "退出";
+            }
+            if (language == "zh-TW")
+            {
+                SettingsToolStripMenuItem.Text = "設定";
+                SelfOnToolStripMenuItem.Text = "開機自啟";
+                AboutToolStripMenuItem.Text = "關於";
+                ExitToolStripMenuItem.Text = "登出";
+            }
+            if (language == "ja-JP")
+            {
+                SettingsToolStripMenuItem.Text = "設定";
+                SelfOnToolStripMenuItem.Text = "自動スタート";
+                AboutToolStripMenuItem.Text = "約";
+                ExitToolStripMenuItem.Text = "終了する";
+            }
+            if (language == "en-US")
+            {
+                SettingsToolStripMenuItem.Text = "Settings";
+                SelfOnToolStripMenuItem.Text = "Automatic start";
+                AboutToolStripMenuItem.Text = "About";
+                ExitToolStripMenuItem.Text = "Exit";
+            }
+
             //获取操作系统版本
             ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_OperatingSystem");
             string sCPUSerialNumber = "";
@@ -65,7 +96,7 @@ namespace DarkMode
             //判断是否为Windows 11操作系统
             if(a != "Windows 11")
             {
-                DialogResult error = MessageBox.Show("本程序仅支持Windows 11操作系统，请升级为Windows 11后使用。", "暂不支持您的电脑", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DialogResult error = MessageBox.Show(Language.StringText("String5"), Language.StringText("String6"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 if(error == DialogResult.OK)
                 {
                     //结束程序
@@ -92,7 +123,7 @@ namespace DarkMode
             }
             catch(Exception ex)
             {
-                MessageBox.Show("注册表初始化失败。错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Language.StringText("String7") + ex.Message, Language.StringText("String4"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
             }
             //获取界面语言
@@ -105,7 +136,7 @@ namespace DarkMode
             }
             catch(Exception ex)
             {
-                MessageBox.Show("读取注册表语言失败。错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Language.StringText("String8") + ex.Message, Language.StringText("String4"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
             //判断是否设置开机自启
@@ -115,7 +146,7 @@ namespace DarkMode
                 if(exist != "")
                 {
                     //如果存在启动项，则修改菜单选项为选中状态
-                    开机自启ToolStripMenuItem.Checked = true;
+                    SelfOnToolStripMenuItem.Checked = true;
                 }
 
             }catch
@@ -127,7 +158,7 @@ namespace DarkMode
             bool judge = judgeSystemColor();
             if (judge == true)
             {
-                MessageBox.Show("检测到系统设置了系统颜色模式为自定义，软件将修改您的自定义模式 。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Language.StringText("String9"), Language.StringText("String10"), MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             //启动计时器和定时器
             timer1.Interval = 1000;
