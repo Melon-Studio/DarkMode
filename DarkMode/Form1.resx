@@ -120,15 +120,24 @@
   <data name="&gt;&gt;timer1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;设置ToolStripMenuItem.Name" xml:space="preserve">
+    <value>设置ToolStripMenuItem</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>156, 127</value>
   </data>
+  <data name="设置ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 22</value>
+  </data>
   <data name="&gt;&gt;notifyIcon1.Type" xml:space="preserve">
     <value>System.Windows.Forms.NotifyIcon, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;设置ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="开机自启ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
+    <value>126, 22</value>
   </data>
   <data name="&gt;&gt;关于ToolStripMenuItem.Name" xml:space="preserve">
     <value>关于ToolStripMenuItem</value>
@@ -315,13 +324,13 @@
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 70</value>
+    <value>127, 92</value>
   </data>
   <data name="&gt;&gt;timer1.Name" xml:space="preserve">
     <value>timer1</value>
   </data>
   <data name="退出ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
+    <value>126, 22</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 12</value>
@@ -503,10 +512,13 @@
 </value>
   </data>
   <data name="关于ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
+    <value>126, 22</value>
   </data>
   <data name="&gt;&gt;退出ToolStripMenuItem.Name" xml:space="preserve">
     <value>退出ToolStripMenuItem</value>
+  </data>
+  <data name="设置ToolStripMenuItem.Text" xml:space="preserve">
+    <value>设置</value>
   </data>
   <data name="notifyIcon1.Text" xml:space="preserve">
     <value>DarkMode</value>
@@ -517,43 +529,16 @@
   <data name="退出ToolStripMenuItem.Text" xml:space="preserve">
     <value>退出</value>
   </data>
-  <data name="$this.Language" type="System.Globalization.CultureInfo, mscorlib">
-    <value>zh-CN</value>
-  </data>
-  <data name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing">
+  <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>135, 17</value>
-  </data>
-  <data name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing">
+  </metadata>
+  <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>300, 17</value>
-  </data>
-  <data name="$this.Localizable" type="System.Boolean, mscorlib">
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
-  <data name="notifyIcon1.TrayLocation" type="System.Drawing.Point, System.Drawing">
+  </metadata>
+  <metadata name="notifyIcon1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
-  </data>
-  <data name="作者：XiaoFans（一只小凡凡）, Melon Studio" xml:space="preserve">
-    <value>作者：XiaoFans（一只小凡凡）, Melon Studio</value>
-  </data>
-  <data name="关于" xml:space="preserve">
-    <value>关于</value>
-  </data>
-  <data name="失败：" xml:space="preserve">
-    <value>失败：</value>
-  </data>
-  <data name="暂不支持您的电脑" xml:space="preserve">
-    <value>暂不支持您的电脑</value>
-  </data>
-  <data name="本程序仅支持Windows 11操作系统，请升级为Windows 11后使用。" xml:space="preserve">
-    <value>本程序仅支持Windows 11操作系统，请升级为Windows 11后使用。</value>
-  </data>
-  <data name="检测到系统设置了系统主题模式为自定义模式，这将无法正常使用本程序，请将自定义模式改为”深色“或”浅色“后再打开本程序 。" xml:space="preserve">
-    <value>检测到系统设置了系统主题模式为自定义模式，这将无法正常使用本程序，请将自定义模式改为”深色“或”浅色“后再打开本程序 。</value>
-  </data>
-  <data name="设置错误" xml:space="preserve">
-    <value>设置错误</value>
-  </data>
-  <data name="错误" xml:space="preserve">
-    <value>错误</value>
-  </data>
+  </metadata>
 </root>

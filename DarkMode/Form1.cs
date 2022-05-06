@@ -18,8 +18,6 @@ namespace DarkMode
         {
             MessageBox.Show("作者：XiaoFans（一只小凡凡）, Melon Studio", "关于");
         }
-        public static string lang = System.Globalization.CultureInfo.InstalledUICulture.Name;
-        public static string LanguageXz = Language.NowLanguage(lang);
         private void 开机自启ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //设置开机自启
@@ -74,18 +72,55 @@ namespace DarkMode
                     Application.ExitThread();
                 }
             }
+            //注册表初始化
+            try
+            {
+                RegistryKey pan;
+                RegistryKey key;
+                pan = Registry.CurrentUser.OpenSubKey(@"Software\DarkMode");
+                
+                if (pan == null)
+                {
+                    key = Registry.CurrentUser.CreateSubKey(@"Software\DarkMode");
+                    key = Registry.CurrentUser.OpenSubKey(@"Software\DarkMode", true);
+                    key.SetValue("startTime", "08:00");
+                    key.SetValue("endTime", "19:00");
+                    key.SetValue("Language", "zh-CN");
+                    key.Close();//关闭连接
+                }
+                
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("注册表初始化失败。错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
+            //获取界面语言
+            try
+            {
+                RegistryKey key;
+                key = Registry.CurrentUser.OpenSubKey(@"Software\DarkMode", true);
+
+                string lang = key.GetValue("Language").ToString();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("读取注册表语言失败。错误信息：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
             //判断是否设置开机自启
             try{
-                RegistryKey rk = Registry.LocalMachine;
-                RegistryKey rk2 = rk.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run");
-                if(rk2 != null)
+                RegistryKey rk = Registry.LocalMachine.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run");
+                string exist = rk.GetValue("DarkMode").ToString();
+                if(exist != "")
                 {
                     //如果存在启动项，则修改菜单选项为选中状态
                     开机自启ToolStripMenuItem.Checked = true;
                 }
-            }catch(Exception ex)
+
+            }catch
             {
-                MessageBox.Show("失败：" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
             }
             
             //判断系统主题是否为自定义模式
@@ -101,9 +136,14 @@ namespace DarkMode
 
         protected bool getTimeSpan(string timeStr)
         {
+            //获取设置的时间
+            RegistryKey set = Registry.CurrentUser;
+            RegistryKey set2 = set.OpenSubKey(@"Software\DarkMode");
+            string start = set2.GetValue("startTime").ToString();
+            string finish = set2.GetValue("endTime").ToString();
             //判断当前时间是否不在工作时间段内
-            string _strWorkingDayAM = "08:00";//非工作时间上午08:00
-            string _strWorkingDayPM = "19:00";//非工作时间下午19:00
+            string _strWorkingDayAM = start;//非工作时间上午08:00
+            string _strWorkingDayPM = finish;//非工作时间下午19:00
             TimeSpan dspWorkingDayAM = DateTime.Parse(_strWorkingDayAM).TimeOfDay;
             TimeSpan dspWorkingDayPM = DateTime.Parse(_strWorkingDayPM).TimeOfDay;
 
@@ -122,7 +162,7 @@ namespace DarkMode
             RegistryKey hkml = Registry.CurrentUser;
             RegistryKey personalize = hkml.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize", true);
             string registDataOne = personalize.GetValue("AppsUseLightTheme").ToString();
-            //检测当前是什么模式（深色）
+            //检测当前是什么模式（深色返回true）
             if(registDataOne == "0x00000000")
             {
                 return false;
@@ -164,6 +204,12 @@ namespace DarkMode
                 personalize.SetValue("AppsUseLightTheme", 0x00000001);
                 personalize.SetValue("SystemUsesLightTheme", 0x00000001);
             }
+        }
+
+        private void 设置ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form2 = new Form2();
+            form2.ShowDialog();
         }
     }
 }
