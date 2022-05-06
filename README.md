@@ -2,7 +2,7 @@
 
 ![](https://shields.io/badge/license-MIT-green)
 
-中文简体(zh-CN) | [中文繁體(zh-TW)](https://gitee.com/melon_studio/darkmode/blob/master/README_zh-TW.md) | [English(EN)](https://gitee.com/melon_studio/darkmode/blob/master/README_EN.md) | [日本語(JP)](https://gitee.com/melon_studio/darkmode/blob/master/README_JP.md)
+中文简体(zh-CN) | [中文繁體(zh-TW)](https://gitee.com/melon_studio/darkmode/blob/master/README_zh-TW.md) | [English(en-US)](https://gitee.com/melon_studio/darkmode/blob/master/README_EN.md) | [日本語(ja-JP)](https://gitee.com/melon_studio/darkmode/blob/master/README_JP.md)
 
 ## 前言
 
