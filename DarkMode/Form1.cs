@@ -12,7 +12,6 @@ namespace DarkMode
             InitializeComponent();
             this.WindowState = FormWindowState.Minimized;
             this.ShowInTaskbar = false;
-            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(Language.NowLanguage().ToString());
             //注册表初始化
             try
             {
@@ -36,6 +35,7 @@ namespace DarkMode
                 MessageBox.Show(Language.StringText("String7") + ex.Message, Language.StringText("String4"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
             }
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(Language.NowLanguage().ToString());
         }
 
         private void 关于ToolStripMenuItem_Click(object sender, EventArgs e)
