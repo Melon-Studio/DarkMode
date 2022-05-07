@@ -13,6 +13,29 @@ namespace DarkMode
             this.WindowState = FormWindowState.Minimized;
             this.ShowInTaskbar = false;
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(Language.NowLanguage().ToString());
+            //注册表初始化
+            try
+            {
+                RegistryKey pan;
+                RegistryKey key;
+                pan = Registry.CurrentUser.OpenSubKey(@"Software\DarkMode");
+
+                if (pan == null)
+                {
+                    key = Registry.CurrentUser.CreateSubKey(@"Software\DarkMode");
+                    key = Registry.CurrentUser.OpenSubKey(@"Software\DarkMode", true);
+                    key.SetValue("startTime", "08:00");
+                    key.SetValue("endTime", "19:00");
+                    key.SetValue("Language", "zh-CN");
+                    key.Close();//关闭连接
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Language.StringText("String7") + ex.Message, Language.StringText("String4"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
         }
 
         private void 关于ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -103,29 +126,7 @@ namespace DarkMode
                     Application.ExitThread();
                 }
             }
-            //注册表初始化
-            try
-            {
-                RegistryKey pan;
-                RegistryKey key;
-                pan = Registry.CurrentUser.OpenSubKey(@"Software\DarkMode");
-                
-                if (pan == null)
-                {
-                    key = Registry.CurrentUser.CreateSubKey(@"Software\DarkMode");
-                    key = Registry.CurrentUser.OpenSubKey(@"Software\DarkMode", true);
-                    key.SetValue("startTime", "08:00");
-                    key.SetValue("endTime", "19:00");
-                    key.SetValue("Language", "zh-CN");
-                    key.Close();//关闭连接
-                }
-                
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(Language.StringText("String7") + ex.Message, Language.StringText("String4"), MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Application.Exit();
-            }
+            
             //获取界面语言
             try
             {
