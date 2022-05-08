@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Management;
 using System.Windows.Forms;
-using Microsoft.Win32;
 
 namespace DarkMode
 {
@@ -26,6 +26,7 @@ namespace DarkMode
                     key.SetValue("startTime", "08:00");
                     key.SetValue("endTime", "19:00");
                     key.SetValue("Language", "zh-CN");
+                    key.SetValue("SunRiseSit", "false");
                     key.Close();//关闭连接
                 }
 
@@ -51,7 +52,7 @@ namespace DarkMode
                 {
                     string path = Application.ExecutablePath;
                     RegistryKey rk = Registry.LocalMachine;
-                    RegistryKey rk2 = rk.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run");
+                    RegistryKey rk2 = rk.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run", true);
                     rk2.SetValue("DarkMode", path);
                     rk2.Close();
                     rk.Close();
@@ -59,13 +60,13 @@ namespace DarkMode
                 else
                 {
                     RegistryKey rk = Registry.LocalMachine;
-                    RegistryKey rk2 = rk.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run");
+                    RegistryKey rk2 = rk.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run", true);
                     rk2.DeleteValue("DarkMode", false);
                     rk2.Close();
                     rk.Close();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(Language.StringText("String3") + ex.Message, Language.StringText("String4"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -117,16 +118,16 @@ namespace DarkMode
             }
             string a = sCPUSerialNumber.Substring(10, 10);
             //判断是否为Windows 11操作系统
-            if(a != "Windows 11")
+            if (a != "Windows 11")
             {
                 DialogResult error = MessageBox.Show(Language.StringText("String5"), Language.StringText("String6"), MessageBoxButtons.OK, MessageBoxIcon.Error);
-                if(error == DialogResult.OK)
+                if (error == DialogResult.OK)
                 {
                     //结束程序
                     Application.ExitThread();
                 }
             }
-            
+
             //获取界面语言
             try
             {
@@ -135,26 +136,28 @@ namespace DarkMode
 
                 string lang = key.GetValue("Language").ToString();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(Language.StringText("String8") + ex.Message, Language.StringText("String4"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
             //判断是否设置开机自启
-            try{
+            try
+            {
                 RegistryKey rk = Registry.LocalMachine.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run");
                 string exist = rk.GetValue("DarkMode").ToString();
-                if(exist != "")
+                if (exist != "")
                 {
                     //如果存在启动项，则修改菜单选项为选中状态
                     SelfOnToolStripMenuItem.Checked = true;
                 }
 
-            }catch
-            {
-                
             }
-            
+            catch
+            {
+
+            }
+
             //判断系统主题是否为自定义模式
             bool judge = judgeSystemColor();
             if (judge == true)
@@ -195,7 +198,7 @@ namespace DarkMode
             RegistryKey personalize = hkml.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize", true);
             string registDataOne = personalize.GetValue("AppsUseLightTheme").ToString();
             //检测当前是什么模式（深色返回true）
-            if(registDataOne == "0x00000000")
+            if (registDataOne == "0x00000000")
             {
                 return false;
             }

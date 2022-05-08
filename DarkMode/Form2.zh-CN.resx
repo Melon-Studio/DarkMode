@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!--
-    Microsoft ResX Schema
-
+  <!-- 
+    Microsoft ResX Schema 
+    
     Version 2.0
-
-    The primary goals of this format is to allow a simple XML format
-    that is mostly human readable. The generation and parsing of the
-    various data types are done through the TypeConverter classes
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
     associated with the data types.
-
+    
     Example:
-
+    
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
@@ -26,79 +26,79 @@
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
-
-    There are any number of "resheader" rows that contain simple
+                
+    There are any number of "resheader" rows that contain simple 
     name/value pairs.
-
-    Each data row contains a name, and value. The row also contains a
-    type or mimetype. Type corresponds to a .NET class that support
-    text/value conversion through the TypeConverter architecture.
-    Classes that don't support this are serialized and stored with the
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
     mimetype set.
-
-    The mimetype is used for serialized objects, and tells the
-    ResXResourceReader how to depersist the object. This is currently not
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
     extensible. For a given mimetype the value must be set accordingly:
-
-    Note - application/x-microsoft.net.object.binary.base64 is the format
-    that the ResXResourceWriter will generate, however the reader can
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
     read any of the formats listed below.
-
+    
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with
+    value   : The object must be serialized with 
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-
+    
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with
+    value   : The object must be serialized with 
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array
+    value   : The object must be serialized into a byte array 
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string"/>
-              <xsd:attribute name="type" type="xsd:string"/>
-              <xsd:attribute name="mimetype" type="xsd:string"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string"/>
-              <xsd:attribute name="name" type="xsd:string"/>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -119,306 +119,233 @@
   </resheader>
   <data name="notifyIcon1.Icon" xml:space="preserve">
     <value>        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        YII=</value>
-    <comment/>
   </data>
   <data name="$this.Icon" xml:space="preserve">
     <value>        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        YII=</value>
-    <comment/>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>设置</value>
-    <comment/>
   </data>
-  <data name=">>$this.Name" xml:space="preserve">
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Form2</value>
-    <comment/>
   </data>
-  <data name=">>$this.Type" xml:space="preserve">
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    <comment/>
   </data>
-  <data name=">>button1.Name" xml:space="preserve">
+  <data name="&gt;&gt;button1.Name" xml:space="preserve">
     <value>button1</value>
-    <comment/>
   </data>
-  <data name=">>button1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;button1.Parent" xml:space="preserve">
     <value>tabPage1</value>
-    <comment/>
   </data>
-  <data name=">>button1.Type" xml:space="preserve">
+  <data name="&gt;&gt;button1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    <comment/>
   </data>
-  <data name=">>button1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
     <value>0</value>
-    <comment/>
   </data>
-  <data name=">>button2.Name" xml:space="preserve">
+  <data name="&gt;&gt;button2.Name" xml:space="preserve">
     <value>button2</value>
-    <comment/>
   </data>
-  <data name=">>button2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;button2.Parent" xml:space="preserve">
     <value>tabPage2</value>
-    <comment/>
   </data>
-  <data name=">>button2.Type" xml:space="preserve">
+  <data name="&gt;&gt;button2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    <comment/>
   </data>
-  <data name=">>button2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;button2.ZOrder" xml:space="preserve">
     <value>1</value>
-    <comment/>
   </data>
-  <data name=">>dateTimePicker1.Name" xml:space="preserve">
+  <data name="&gt;&gt;dateTimePicker1.Name" xml:space="preserve">
     <value>dateTimePicker1</value>
-    <comment/>
   </data>
-  <data name=">>dateTimePicker1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;dateTimePicker1.Parent" xml:space="preserve">
     <value>tabPage1</value>
-    <comment/>
   </data>
-  <data name=">>dateTimePicker1.Type" xml:space="preserve">
+  <data name="&gt;&gt;dateTimePicker1.Type" xml:space="preserve">
     <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    <comment/>
   </data>
-  <data name=">>dateTimePicker1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;dateTimePicker1.ZOrder" xml:space="preserve">
     <value>4</value>
-    <comment/>
   </data>
-  <data name=">>dateTimePicker2.Name" xml:space="preserve">
+  <data name="&gt;&gt;dateTimePicker2.Name" xml:space="preserve">
     <value>dateTimePicker2</value>
-    <comment/>
   </data>
-  <data name=">>dateTimePicker2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;dateTimePicker2.Parent" xml:space="preserve">
     <value>tabPage1</value>
-    <comment/>
   </data>
-  <data name=">>dateTimePicker2.Type" xml:space="preserve">
+  <data name="&gt;&gt;dateTimePicker2.Type" xml:space="preserve">
     <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    <comment/>
   </data>
-  <data name=">>dateTimePicker2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;dateTimePicker2.ZOrder" xml:space="preserve">
     <value>2</value>
-    <comment/>
   </data>
-  <data name=">>label1.Name" xml:space="preserve">
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
-    <comment/>
   </data>
-  <data name=">>label1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
     <value>tabPage1</value>
-    <comment/>
   </data>
-  <data name=">>label1.Type" xml:space="preserve">
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    <comment/>
   </data>
-  <data name=">>label1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
     <value>3</value>
-    <comment/>
   </data>
-  <data name=">>label2.Name" xml:space="preserve">
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
     <value>label2</value>
-    <comment/>
   </data>
-  <data name=">>label2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
     <value>tabPage1</value>
-    <comment/>
   </data>
-  <data name=">>label2.Type" xml:space="preserve">
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    <comment/>
   </data>
-  <data name=">>label2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
     <value>1</value>
-    <comment/>
   </data>
-  <data name=">>label3.Name" xml:space="preserve">
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
     <value>label3</value>
-    <comment/>
   </data>
-  <data name=">>label3.Parent" xml:space="preserve">
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
     <value>tabPage2</value>
-    <comment/>
   </data>
-  <data name=">>label3.Type" xml:space="preserve">
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    <comment/>
   </data>
-  <data name=">>label3.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
     <value>0</value>
-    <comment/>
   </data>
-  <data name=">>radioButton1.Name" xml:space="preserve">
+  <data name="&gt;&gt;radioButton1.Name" xml:space="preserve">
     <value>radioButton1</value>
-    <comment/>
   </data>
-  <data name=">>radioButton1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;radioButton1.Parent" xml:space="preserve">
     <value>tabPage2</value>
-    <comment/>
   </data>
-  <data name=">>radioButton1.Type" xml:space="preserve">
+  <data name="&gt;&gt;radioButton1.Type" xml:space="preserve">
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    <comment/>
   </data>
-  <data name=">>radioButton1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;radioButton1.ZOrder" xml:space="preserve">
     <value>5</value>
-    <comment/>
   </data>
-  <data name=">>radioButton2.Name" xml:space="preserve">
+  <data name="&gt;&gt;radioButton2.Name" xml:space="preserve">
     <value>radioButton2</value>
-    <comment/>
   </data>
-  <data name=">>radioButton2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;radioButton2.Parent" xml:space="preserve">
     <value>tabPage2</value>
-    <comment/>
   </data>
-  <data name=">>radioButton2.Type" xml:space="preserve">
+  <data name="&gt;&gt;radioButton2.Type" xml:space="preserve">
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    <comment/>
   </data>
-  <data name=">>radioButton2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;radioButton2.ZOrder" xml:space="preserve">
     <value>4</value>
-    <comment/>
   </data>
-  <data name=">>radioButton3.Name" xml:space="preserve">
+  <data name="&gt;&gt;radioButton3.Name" xml:space="preserve">
     <value>radioButton3</value>
-    <comment/>
   </data>
-  <data name=">>radioButton3.Parent" xml:space="preserve">
+  <data name="&gt;&gt;radioButton3.Parent" xml:space="preserve">
     <value>tabPage2</value>
-    <comment/>
   </data>
-  <data name=">>radioButton3.Type" xml:space="preserve">
+  <data name="&gt;&gt;radioButton3.Type" xml:space="preserve">
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    <comment/>
   </data>
-  <data name=">>radioButton3.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;radioButton3.ZOrder" xml:space="preserve">
     <value>3</value>
-    <comment/>
   </data>
-  <data name=">>radioButton4.Name" xml:space="preserve">
+  <data name="&gt;&gt;radioButton4.Name" xml:space="preserve">
     <value>radioButton4</value>
-    <comment/>
   </data>
-  <data name=">>radioButton4.Parent" xml:space="preserve">
+  <data name="&gt;&gt;radioButton4.Parent" xml:space="preserve">
     <value>tabPage2</value>
-    <comment/>
   </data>
-  <data name=">>radioButton4.Type" xml:space="preserve">
+  <data name="&gt;&gt;radioButton4.Type" xml:space="preserve">
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    <comment/>
   </data>
-  <data name=">>radioButton4.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;radioButton4.ZOrder" xml:space="preserve">
     <value>2</value>
-    <comment/>
   </data>
-  <data name=">>tabPage1.Name" xml:space="preserve">
+  <data name="&gt;&gt;tabPage1.Name" xml:space="preserve">
     <value>tabPage1</value>
-    <comment/>
   </data>
-  <data name=">>tabPage1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;tabPage1.Parent" xml:space="preserve">
     <value>设置</value>
-    <comment/>
   </data>
-  <data name=">>tabPage1.Type" xml:space="preserve">
+  <data name="&gt;&gt;tabPage1.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    <comment/>
   </data>
-  <data name=">>tabPage1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;tabPage1.ZOrder" xml:space="preserve">
     <value>0</value>
-    <comment/>
   </data>
-  <data name=">>tabPage2.Name" xml:space="preserve">
+  <data name="&gt;&gt;tabPage2.Name" xml:space="preserve">
     <value>tabPage2</value>
-    <comment/>
   </data>
-  <data name=">>tabPage2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;tabPage2.Parent" xml:space="preserve">
     <value>设置</value>
-    <comment/>
   </data>
-  <data name=">>tabPage2.Type" xml:space="preserve">
+  <data name="&gt;&gt;tabPage2.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    <comment/>
   </data>
-  <data name=">>tabPage2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;tabPage2.ZOrder" xml:space="preserve">
     <value>1</value>
-    <comment/>
   </data>
-  <data name=">>设置.Name" xml:space="preserve">
+  <data name="&gt;&gt;设置.Name" xml:space="preserve">
     <value>设置</value>
-    <comment/>
   </data>
-  <data name=">>设置.Parent" xml:space="preserve">
+  <data name="&gt;&gt;设置.Parent" xml:space="preserve">
     <value>$this</value>
-    <comment/>
   </data>
-  <data name=">>设置.Type" xml:space="preserve">
+  <data name="&gt;&gt;设置.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    <comment/>
   </data>
-  <data name=">>设置.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;设置.ZOrder" xml:space="preserve">
     <value>0</value>
-    <comment/>
   </data>
   <data name="button1.Text" xml:space="preserve">
     <value>保存</value>
-    <comment/>
   </data>
   <data name="button2.Text" xml:space="preserve">
     <value>保存</value>
-    <comment/>
   </data>
   <data name="dateTimePicker1.CustomFormat" xml:space="preserve">
     <value>HH:mm:ss</value>
-    <comment/>
   </data>
   <data name="dateTimePicker2.CustomFormat" xml:space="preserve">
     <value>HH:mm:ss</value>
-    <comment/>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>开始时间(浅色模式)</value>
-    <comment/>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>结束时间(浅色模式)</value>
-    <comment/>
   </data>
   <data name="label3.Text" xml:space="preserve">
     <value>部分翻译为机器翻译</value>
-    <comment/>
   </data>
   <data name="radioButton1.Text" xml:space="preserve">
     <value>简体中文</value>
-    <comment/>
   </data>
   <data name="radioButton2.Text" xml:space="preserve">
     <value>繁體中文</value>
-    <comment/>
   </data>
   <data name="radioButton3.Text" xml:space="preserve">
     <value>日本語</value>
-    <comment/>
   </data>
   <data name="radioButton4.Text" xml:space="preserve">
     <value>English</value>
-    <comment/>
   </data>
   <data name="tabPage1.Text" xml:space="preserve">
     <value>时间</value>
-    <comment/>
   </data>
   <data name="tabPage2.Text" xml:space="preserve">
     <value>语言</value>
-    <comment/>
   </data>
   <data name="String1" xml:space="preserve">
     <value>重新启动软件后生效</value>
-    <comment/>
   </data>
   <data name="String2" xml:space="preserve">
     <value>提示</value>
-    <comment/>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>日出日落模式</value>
   </data>
 </root>

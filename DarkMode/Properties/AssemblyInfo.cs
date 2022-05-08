@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("XiaoFans，Melon Studio")]
 [assembly: AssemblyProduct("DarkMode")]
-[assembly: AssemblyCopyright("本程序版权归 XiaoFans（一只小凡凡），Melon Studio 所有。")]
+[assembly: AssemblyCopyright("本程序版权归 Melon Studio - XiaoFans 所有。")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -31,5 +31,5 @@ using System.Runtime.InteropServices;
 //可以指定所有这些值，也可以使用“生成号”和“修订号”的默认值
 //通过使用 "*"，如下所示:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.3.6")]
-[assembly: AssemblyFileVersion("1.3.6")]
+[assembly: AssemblyVersion("1.4.5")]
+[assembly: AssemblyFileVersion("1.4.5")]

@@ -17,7 +17,7 @@ namespace DarkMode
             Application.Run(new Form1());
         }
 
-        
+
 
 
 

@@ -345,4 +345,7 @@
   <data name="String2" xml:space="preserve">
     <value>Tips</value>
   </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Sunrise Sunset Mode</value>
+  </data>
 </root>
