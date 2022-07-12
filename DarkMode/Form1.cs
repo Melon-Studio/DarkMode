@@ -12,6 +12,7 @@ namespace DarkMode
             InitializeComponent();
             this.WindowState = FormWindowState.Minimized;
             this.ShowInTaskbar = false;
+    
             //注册表初始化
             try
             {
@@ -77,8 +78,12 @@ namespace DarkMode
             Close();
         }
 
+        private bool windowsCreate = true;
+
         private void Form1_Load(object sender, EventArgs e)
         {
+            base.Visible = false;
+            windowsCreate = false;
             string language = new System.Globalization.CultureInfo(Language.NowLanguage().ToString()).ToString();
             if (language == "zh-CN")
             {

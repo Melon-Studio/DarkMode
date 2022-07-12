@@ -65,15 +65,15 @@ namespace DarkMode
             {
                 bool x = true;
                 checkBox1.Checked = x;
-                dateTimePicker1.Enabled = true;
-                dateTimePicker2.Enabled = true;
+                dateTimePicker1.Enabled = false;
+                dateTimePicker2.Enabled = false;
             }
             else
             {
                 bool x = false;
                 checkBox1.Checked = x;
-                dateTimePicker1.Enabled = false;
-                dateTimePicker2.Enabled = false;
+                dateTimePicker1.Enabled = true;
+                dateTimePicker2.Enabled = true;
             }
             if (key.GetValue("Language").ToString() == "zh-CN")
             {
@@ -179,6 +179,22 @@ namespace DarkMode
             {
                 return "Time out";
             }
+            if (language == "zh-CN" && str == "String6")
+            {
+                return "地址：";
+            }
+            if (language == "zh-TW" && str == "String6")
+            {
+                return "地址：";
+            }
+            if (language == "ja-JP" && str == "String6")
+            {
+                return "住所：";
+            }
+            if (language == "en-US" && str == "String6")
+            {
+                return "Address: ";
+            }
             return "null";
         }
 
@@ -204,7 +220,8 @@ namespace DarkMode
 
         void PrintPosition(double Latitude, double Longitude)
         {
-            label5.Text = StringText("String3") + Longitude.ToString() + "\n" + StringText("String4") + Latitude.ToString();
+            IPAddress iP = new IPAddress();
+            label5.Text = StringText("String3") + Longitude.ToString() + "\n" + StringText("String4") + Latitude.ToString() + "\n" + "IP: " + iP.IP() + "\n" + StringText("String6") + iP.Address();
             watcher.Dispose();
             SunTimeResult result = SunTimes.GetSunTime(DateTime.Now, double.Parse(Longitude.ToString()), double.Parse(Latitude.ToString()));
             RegistryKey set = Registry.CurrentUser.OpenSubKey(@"Software\DarkMode", true);
