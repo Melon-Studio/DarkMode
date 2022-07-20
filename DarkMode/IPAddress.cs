@@ -47,6 +47,11 @@ namespace DarkMode
             address = address.Replace("鹏博士", "");
             address = address.Replace("教育网", "");
             address = address.Replace("长城", "");
+            address = address.Replace(" ", "");
+            address = address.Replace("省", "");
+            address = address.Replace("市", "");
+            address = address.Replace("区", "");
+            address = address.Replace("县", "");
             return address;
         }
     }

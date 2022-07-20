@@ -2,6 +2,7 @@
 using System;
 using System.Device.Location;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
@@ -56,6 +57,30 @@ namespace DarkMode
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            //语言设置
+            tabPage1.Text = Language.Form2Lang("String1");
+            label1.Text = Language.Form2Lang("String2");
+            label2.Text = Language.Form2Lang("String3");
+            label4.Text = Language.Form2Lang("String4");
+            tabPage2.Text = Language.Form2Lang("String5");
+            label3.Text = Language.Form2Lang("String6");
+            tabPage3.Text = Language.Form2Lang("String7");
+            groupBox1.Text = Language.Form2Lang("String8");
+            label7.Text = Language.Form2Lang("String9");
+            label8.Text = Language.Form2Lang("String10");
+            label10.Text = Language.Form2Lang("String9");
+            label9.Text = Language.Form2Lang("String10");
+            groupBox2.Text = Language.Form2Lang("String11");
+            label12.Text = Language.Form2Lang("String12");
+            button3.Text = Language.Form2Lang("String13");
+            button4.Text = Language.Form2Lang("String13");
+            button5.Text = Language.Form2Lang("String13");
+            button6.Text = Language.Form2Lang("String13");
+            button1.Text = Language.Form2Lang("String14");
+            button2.Text = Language.Form2Lang("String14");
+            button7.Text = Language.Form2Lang("String14");
+            
+            
             //初始化组件获取注册表值
             RegistryKey key;
             key = Registry.CurrentUser.OpenSubKey(@"Software\DarkMode", true);
@@ -96,7 +121,7 @@ namespace DarkMode
         //语言类
         public static string StringText(string str)
         {
-            string language = new System.Globalization.CultureInfo(Language.NowLanguage().ToString()).ToString();
+            string language = Registry.GetValue("HKEY_CURRENT_USER\\Software\\DarkMode", "Language", "").ToString();
             if (language == "zh-CN" && str == "String1")
             {
                 return "点击确定后，重启程序生效。";
@@ -196,6 +221,8 @@ namespace DarkMode
                 return "Address: ";
             }
             return "null";
+
+
         }
 
 
@@ -217,19 +244,21 @@ namespace DarkMode
             PrintPosition(e.Position.Location.Latitude, e.Position.Location.Longitude);
 
         }
-
-        void PrintPosition(double Latitude, double Longitude)
+        
+        async void PrintPosition(double Latitude, double Longitude)
         {
             IPAddress iP = new IPAddress();
-            label5.Text = StringText("String3") + Longitude.ToString() + "\n" + StringText("String4") + Latitude.ToString() + "\n" + "IP: " + iP.IP() + "\n" + StringText("String6") + iP.Address();
-            watcher.Dispose();
             SunTimeResult result = SunTimes.GetSunTime(DateTime.Now, double.Parse(Longitude.ToString()), double.Parse(Latitude.ToString()));
             RegistryKey set = Registry.CurrentUser.OpenSubKey(@"Software\DarkMode", true);
-            set.SetValue("startTime", result.SunriseTime.ToString("HH:mm:ss"));
-            set.SetValue("endTime", result.SunsetTime.ToString("HH:mm:ss"));
-            dateTimePicker1.Text = set.GetValue("startTime").ToString();
-            dateTimePicker2.Text = set.GetValue("endTime").ToString();
-
+            await Task.Run(() =>
+            {
+                label5.Text = StringText("String3") + Longitude.ToString() + "\n" + StringText("String4") + Latitude.ToString() + "\n" + "IP: " + iP.IP() + "\n" + StringText("String6") + iP.Address();
+                watcher.Dispose();
+                set.SetValue("startTime", result.SunriseTime.ToString("HH:mm:ss"));
+                set.SetValue("endTime", result.SunsetTime.ToString("HH:mm:ss"));
+                dateTimePicker1.Text = set.GetValue("startTime").ToString();
+                dateTimePicker2.Text = set.GetValue("endTime").ToString();
+            });
         }
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
@@ -247,6 +276,91 @@ namespace DarkMode
             }
 
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "图片文件|*.jpg;*.jpeg;*.bmp;*.dib;*.png;*.jfif;*.jpe;*.gif;*.tif;*.tiff;*.wdp;*.heic;*.heif;*.heics;*.heifs;*.hif;*.avci;*.avcs;*.avif;*.avifs;";
+            ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                textBox1.Text = ofd.FileName;
+            }
+            else
+            {
+                textBox1.Text = null;
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "图片文件|*.jpg;*.jpeg;*.bmp;*.dib;*.png;*.jfif;*.jpe;*.gif;*.tif;*.tiff;*.wdp;*.heic;*.heif;*.heics;*.heifs;*.hif;*.avci;*.avcs;*.avif;*.avifs;";
+            ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                textBox2.Text = ofd.FileName;
+            }
+            else
+            {
+                textBox2.Text = null;
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "json文件|*.json;";
+            ofd.InitialDirectory = CmdCommit.WallpaperPath();
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                textBox4.Text = ofd.FileName;
+            }
+            else
+            {
+                textBox4.Text = null;
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "json文件|*.json;";
+            ofd.InitialDirectory = CmdCommit.WallpaperPath();
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                textBox3.Text = ofd.FileName;
+            }
+            else
+            {
+                textBox3.Text = null;
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            //原生壁纸设置
+            RegistryKey Wallpaper = Registry.CurrentUser.OpenSubKey(@"Software\DarkMode", true);
+            if(textBox1.Text != "")
+            {
+                Wallpaper.SetValue("ligth_ys", textBox1.Text);
+            }
+            if(textBox2.Text != "")
+            {
+                Wallpaper.SetValue("dark_ys", textBox1.Text);
+            }
+            //Wallpaper Engine壁纸设置
+            RegistryKey WE = Registry.CurrentUser.OpenSubKey(@"Software\DarkMode", true);
+            if (textBox1.Text != "")
+            {
+                WE.SetValue("ligth_we", textBox3.Text);
+            }
+            if (textBox2.Text != "")
+            {
+                WE.SetValue("dark_we", textBox4.Text);
+            }
+            CmdCommit.CmdCommandLight();
         }
     }
 }

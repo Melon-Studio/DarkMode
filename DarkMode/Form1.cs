@@ -27,7 +27,7 @@ namespace DarkMode
                     key.SetValue("startTime", "08:00");
                     key.SetValue("endTime", "19:00");
                     key.SetValue("Language", "zh-CN");
-                    key.SetValue("SunRiseSit", "false");
+                    key.SetValue("SunRiseSet", "false");
                     key.Close();//关闭连接
                 }
 
@@ -78,7 +78,9 @@ namespace DarkMode
             Close();
         }
 
+#pragma warning disable IDE0052 // 删除未读的私有成员
         private bool windowsCreate = true;
+#pragma warning restore IDE0052 // 删除未读的私有成员
 
         private void Form1_Load(object sender, EventArgs e)
         {

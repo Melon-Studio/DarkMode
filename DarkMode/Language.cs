@@ -13,7 +13,7 @@ namespace DarkMode
         //语言类
         public static string StringText(string str)
         {
-            string language = new System.Globalization.CultureInfo(Language.NowLanguage().ToString()).ToString();
+            string language = Registry.GetValue("HKEY_CURRENT_USER\\Software\\DarkMode", "Language", "").ToString();
             //zh-CN
             if (language == "zh-CN" && str == "String1")
             {
@@ -179,6 +179,255 @@ namespace DarkMode
                 return "Tips";
             }
             return "null";
+        }
+        public static string Form2Lang(string str)
+        {
+            string language = Registry.GetValue("HKEY_CURRENT_USER\\Software\\DarkMode", "Language", "").ToString();
+            //zh-CN
+            if (language == "zh-CN" && str == "String1")
+            {
+                return "时间";
+            }
+            if (language == "zh-CN" && str == "String2")
+            {
+                return "开始时间（浅色模式）";
+            }
+            if (language == "zh-CN" && str == "String3")
+            {
+                return "结束时间（浅色模式）";
+            }
+            if (language == "zh-CN" && str == "String4")
+            {
+                return "日出日落模式";
+            }
+            if (language == "zh-CN" && str == "String5")
+            {
+                return "语言";
+            }
+            if (language == "zh-CN" && str == "String6")
+            {
+                return "部分翻译为机器翻译";
+            }
+            if (language == "zh-CN" && str == "String7")
+            {
+                return "壁纸";
+            }
+            if (language == "zh-CN" && str == "String8")
+            {
+                return "原生壁纸";
+            }
+            if (language == "zh-CN" && str == "String9")
+            {
+                return "浅色时";
+            }
+            if (language == "zh-CN" && str == "String10")
+            {
+                return "深色时";
+            }
+            if (language == "zh-CN" && str == "String11")
+            {
+                return "Wallpaper Engine 壁纸";
+            }
+            if (language == "zh-CN" && str == "String12")
+            {
+                return "设置文档";
+            }
+            if (language == "zh-CN" && str == "String13")
+            {
+                return "浏览";
+            }
+            if (language == "zh-CN" && str == "String14")
+            {
+                return "保存";
+            }
+            if (language == "zh-CN" && str == "String15")
+            {
+                return "设置";
+            }
+            //zh-TW
+            if (language == "zh-TW" && str == "String1")
+            {
+                return "時間";
+            }
+            if (language == "zh-TW" && str == "String2")
+            {
+                return "開始時間（淺色模式）";
+            }
+            if (language == "zh-TW" && str == "String3")
+            {
+                return "結束時間（淺色模式）";
+            }
+            if (language == "zh-TW" && str == "String4")
+            {
+                return "日出日落模式";
+            }
+            if (language == "zh-TW" && str == "String5")
+            {
+                return "語言";
+            }
+            if (language == "zh-TW" && str == "String6")
+            {
+                return "部分翻譯為機器翻譯";
+            }
+            if (language == "zh-TW" && str == "String7")
+            {
+                return "壁紙";
+            }
+            if (language == "zh-TW" && str == "String8")
+            {
+                return "原生壁紙";
+            }
+            if (language == "zh-TW" && str == "String9")
+            {
+                return "淺色時";
+            }
+            if (language == "zh-TW" && str == "String10")
+            {
+                return "深色時";
+            }
+            if (language == "zh-TW" && str == "String11")
+            {
+                return "Wallpaper Engine 壁紙";
+            }
+            if (language == "zh-TW" && str == "String12")
+            {
+                return "設定文檔";
+            }
+            if (language == "zh-TW" && str == "String13")
+            {
+                return "瀏覽";
+            }
+            if (language == "zh-TW" && str == "String14")
+            {
+                return "保存";
+            }
+            if (language == "zh-TW" && str == "String15")
+            {
+                return "設定";
+            }
+            //ja-JP
+            if (language == "ja-JP" && str == "String1")
+            {
+                return "時間";
+            }
+            if (language == "ja-JP" && str == "String2")
+            {
+                return "開始時間（ライトモード）";
+            }
+            if (language == "ja-JP" && str == "String3")
+            {
+                return "終了時間（ライトモード）";
+            }
+            if (language == "ja-JP" && str == "String4")
+            {
+                return "サンライズサンセットモード";
+            }
+            if (language == "ja-JP" && str == "String5")
+            {
+                return "言語";
+            }
+            if (language == "ja-JP" && str == "String6")
+            {
+                return "部分的に機械翻訳に翻訳";
+            }
+            if (language == "ja-JP" && str == "String7")
+            {
+                return "壁紙";
+            }
+            if (language == "ja-JP" && str == "String8")
+            {
+                return "ネイティブ壁紙";
+            }
+            if (language == "ja-JP" && str == "String9")
+            {
+                return "明色時";
+            }
+            if (language == "ja-JP" && str == "String10")
+            {
+                return "暗色時";
+            }
+            if (language == "ja-JP" && str == "String11")
+            {
+                return "Wallpaper Engine 壁紙";
+            }
+            if (language == "ja-JP" && str == "String12")
+            {
+                return "セットアップドキュメント";
+            }
+            if (language == "ja-JP" && str == "String13")
+            {
+                return "検索";
+            }
+            if (language == "ja-JP" && str == "String14")
+            {
+                return "保存";
+            }
+            if (language == "ja-JP" && str == "String15")
+            {
+                return "設定";
+            }
+            //en-US
+            if (language == "en-US" && str == "String1")
+            {
+                return "Time";
+            }
+            if (language == "en-US" && str == "String2")
+            {
+                return "Start time(light mode)";
+            }
+            if (language == "en-US" && str == "String3")
+            {
+                return "End time(dark mode)";
+            }
+            if (language == "en-US" && str == "String4")
+            {
+                return "Sunrise Sunset Mode";
+            }
+            if (language == "en-US" && str == "String5")
+            {
+                return "Language";
+            }
+            if (language == "en-US" && str == "String6")
+            {
+                return "Partial machine translation";
+            }
+            if (language == "en-US" && str == "String7")
+            {
+                return "wallpaper";
+            }
+            if (language == "en-US" && str == "String8")
+            {
+                return "native wallpaper";
+            }
+            if (language == "en-US" && str == "String9")
+            {
+                return "light";
+            }
+            if (language == "en-US" && str == "String10")
+            {
+                return "dark";
+            }
+            if (language == "en-US" && str == "String11")
+            {
+                return "Wallpaper Engine";
+            }
+            if (language == "en-US" && str == "String12")
+            {
+                return "setup document";
+            }
+            if (language == "en-US" && str == "String13")
+            {
+                return "sea...";
+            }
+            if (language == "en-US" && str == "String14")
+            {
+                return "Save";
+            }
+            if (language == "en-US" && str == "String15")
+            {
+                return "Settings";
+            }
+            return null;
         }
     }
 
