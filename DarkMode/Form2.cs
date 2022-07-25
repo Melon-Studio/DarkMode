@@ -79,13 +79,18 @@ namespace DarkMode
             button1.Text = Language.Form2Lang("String14");
             button2.Text = Language.Form2Lang("String14");
             button7.Text = Language.Form2Lang("String14");
-            
-            
+            Text = Language.Form2Lang("String15");
+
+
             //初始化组件获取注册表值
             RegistryKey key;
             key = Registry.CurrentUser.OpenSubKey(@"Software\DarkMode", true);
             dateTimePicker1.Text = key.GetValue("startTime").ToString();
             dateTimePicker2.Text = key.GetValue("endTime").ToString();
+            textBox1.Text = key.GetValue("light_ys").ToString();
+            textBox2.Text = key.GetValue("dark_ys").ToString();
+            textBox3.Text = key.GetValue("light_we").ToString();
+            textBox4.Text = key.GetValue("dark_we").ToString();
             if (key.GetValue("SunRiseSet").ToString() == "True")
             {
                 bool x = true;
@@ -344,23 +349,23 @@ namespace DarkMode
             RegistryKey Wallpaper = Registry.CurrentUser.OpenSubKey(@"Software\DarkMode", true);
             if(textBox1.Text != "")
             {
-                Wallpaper.SetValue("ligth_ys", textBox1.Text);
+                Wallpaper.SetValue("light_ys", textBox1.Text);
             }
             if(textBox2.Text != "")
             {
-                Wallpaper.SetValue("dark_ys", textBox1.Text);
+                Wallpaper.SetValue("dark_ys", textBox2.Text);
             }
             //Wallpaper Engine壁纸设置
             RegistryKey WE = Registry.CurrentUser.OpenSubKey(@"Software\DarkMode", true);
             if (textBox1.Text != "")
             {
-                WE.SetValue("ligth_we", textBox3.Text);
+                WE.SetValue("light_we", textBox3.Text);
             }
             if (textBox2.Text != "")
             {
                 WE.SetValue("dark_we", textBox4.Text);
             }
-            CmdCommit.CmdCommandLight();
+            
         }
     }
 }

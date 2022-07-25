@@ -28,6 +28,11 @@ namespace DarkMode
                     key.SetValue("endTime", "19:00");
                     key.SetValue("Language", "zh-CN");
                     key.SetValue("SunRiseSet", "false");
+                    key.SetValue("IsDark", "true");
+                    key.SetValue("light_ys", "");
+                    key.SetValue("light_we", "");
+                    key.SetValue("dark_ys", "");
+                    key.SetValue("dark_we", "");
                     key.Close();//关闭连接
                 }
 
@@ -238,6 +243,35 @@ namespace DarkMode
                 RegistryKey personalize = hkml.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize", true);
                 personalize.SetValue("AppsUseLightTheme", 0x00000000);
                 personalize.SetValue("SystemUsesLightTheme", 0x00000000);
+                //原生壁纸设置
+                RegistryKey key;
+                key = Registry.CurrentUser.OpenSubKey(@"Software\DarkMode", true);
+                string dark_ys = key.GetValue("dark_ys").ToString();
+                RegistryKey key2;
+                key2 = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop", true);
+                string WallPaper = key2.GetValue("WallPaper").ToString();
+                if (dark_ys != "")
+                {
+                    if(WallPaper != dark_ys)
+                    {
+                        key2.SetValue("WallPaper", dark_ys);
+                    }
+                }
+                //Wallpaper Engine壁纸设置
+                RegistryKey key3;
+                key3 = Registry.CurrentUser.OpenSubKey(@"Software\DarkMode", true);
+                string dark_we = key3.GetValue("dark_we").ToString();
+                string isdark = key3.GetValue("IsDark").ToString();
+                if (dark_we != "")
+                { 
+                    if (isdark == "true")
+                    {
+                        CmdCommit.CmdCommandLight(dark_we);
+                        RegistryKey set;
+                        set = Registry.CurrentUser.OpenSubKey(@"Software\DarkMode", true);
+                        set.SetValue("IsDark", "false");
+                    }
+                }
             }
             else
             {
@@ -245,12 +279,43 @@ namespace DarkMode
                 RegistryKey personalize = hkml.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize", true);
                 personalize.SetValue("AppsUseLightTheme", 0x00000001);
                 personalize.SetValue("SystemUsesLightTheme", 0x00000001);
+
+                //原生壁纸设置
+                RegistryKey key;
+                key = Registry.CurrentUser.OpenSubKey(@"Software\DarkMode", true);
+                string light_ys = key.GetValue("light_ys").ToString();
+                RegistryKey key2;
+                key2 = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop", true);
+                string WallPaper = key2.GetValue("WallPaper").ToString();
+                if (light_ys != "")
+                {
+                    if (WallPaper != light_ys)
+                    {
+                        key2.SetValue("WallPaper", light_ys);
+                    }
+                }
+                //Wallpaper Engine壁纸设置
+                RegistryKey key3;
+                key3 = Registry.CurrentUser.OpenSubKey(@"Software\DarkMode", true);
+                string light_we = key3.GetValue("light_we").ToString();
+                string isdark = key3.GetValue("IsDark").ToString();
+                if (light_we != "")
+                {
+                    if (isdark == "false")
+                    {
+                        CmdCommit.CmdCommandLight(light_we);
+                        RegistryKey set;
+                        set = Registry.CurrentUser.OpenSubKey(@"Software\DarkMode", true);
+                        set.SetValue("IsDark", "true");
+                    }
+                }
             }
         }
 
         private void 设置ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form form2 = new Form2();
+            form2.Text = Language.Form2Lang("String15");
             form2.ShowDialog();
         }
     }

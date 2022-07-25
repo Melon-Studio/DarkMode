@@ -1,10 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DarkMode
@@ -40,12 +36,13 @@ namespace DarkMode
             return workshop;
         }
 
-        public static void CmdCommandLight()
+        public static void CmdCommandLight(string mingling)
         {
-            //TEST
-            string s = "\"D:\\Program Files (x86)\\Steam\\steamapps\\common\\wallpaper_engine\\wallpaper64.exe\"";
-            string ss = "\"D:\\Program Files (x86)\\Steam\\steamapps\\workshop\\content\\431960\\1884904087\\project.json\"";
-            string zhilin = s + " -control openWallpaper -file " + ss;
+            RegistryKey key;
+            key = Registry.CurrentUser.OpenSubKey(@"Software\WallpaperEngine", true);
+            string s = key.GetValue("installPath").ToString();
+            
+            string zhilin = "\"" + s + "\"" + " -control openWallpaper -file " + "\"" + mingling + "\"";
             //执行cmd命令
             System.Diagnostics.Process process = new System.Diagnostics.Process()
             {
