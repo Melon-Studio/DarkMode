@@ -1,6 +1,6 @@
 # 🌙DarkMode
 
-![](https://shields.io/badge/license-MIT-green)![](https://img.shields.io/github/stars/Melon-Studio/DarkMode)![](https://img.shields.io/github/issues/Melon-Studio/DarkMode)![](https://img.shields.io/github/forks/Melon-Studio/DarkMode)
+![](https://shields.io/badge/license-MIT-green) ![](https://img.shields.io/github/stars/Melon-Studio/DarkMode) ![](https://img.shields.io/github/issues/Melon-Studio/DarkMode) ![](https://img.shields.io/github/forks/Melon-Studio/DarkMode)
 
 [中文简体(zh-CN)](README.md) | [中文繁體(zh-TW)](README_zh-TW.md) | English(en-US) | [日本語(ja-JP)](README_JP.md)
 
