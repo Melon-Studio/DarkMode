@@ -370,7 +370,7 @@ namespace DarkMode
 
         private void label12_Click(object sender, EventArgs e)
         {
-            Process.Start("explorer.exe", "https://github.com/6get-xiaofan/DarkMode/wiki/wallpaper-engine%E5%A3%81%E7%BA%B8%E8%AE%BE%E7%BD%AE");
+            Process.Start("explorer.exe", "https://github.com/Melon-Studio/DarkMode/wiki/wallpaper-engine%E5%A3%81%E7%BA%B8%E8%AE%BE%E7%BD%AE");
         }
     }
 }

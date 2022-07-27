@@ -640,7 +640,7 @@
     <value>NoControl</value>
   </data>
   <data name="button5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>198, 46</value>
+    <value>198, 20</value>
   </data>
   <data name="button5.Size" type="System.Drawing.Size, System.Drawing">
     <value>46, 20</value>
@@ -667,7 +667,7 @@
     <value>NoControl</value>
   </data>
   <data name="button6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>198, 20</value>
+    <value>198, 46</value>
   </data>
   <data name="button6.Size" type="System.Drawing.Size, System.Drawing">
     <value>46, 20</value>
