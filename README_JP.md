@@ -89,7 +89,9 @@ SOFTWARE.
 
 ## 📶トレンド
 
-## [![Stargazers over time](https://starchart.cc/Melon-Studio/DarkMode.svg)](https://starchart.cc/Melon-Studio/DarkMode) 
+[![Star History Chart](https://api.star-history.com/svg?repos=Melon-Studio/DarkMode&type=Date)](https://star-history.com/#Melon-Studio/DarkMode)
+
+
 
 ## 🌞ありがとう
 
