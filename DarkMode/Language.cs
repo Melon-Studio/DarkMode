@@ -55,6 +55,14 @@ namespace DarkMode
             {
                 return "提示";
             }
+            if(language == "zh-CN" && str == "String11")
+            {
+                return "DarkMode已进入后台";
+            }
+            if (language == "zh-CN" && str == "String12")
+            {
+                return "DarkMode已进入后台，设置请右键托盘栏图标。";
+            }
             //zh-TW
             if (language == "zh-TW" && str == "String1")
             {
@@ -95,6 +103,14 @@ namespace DarkMode
             if (language == "zh-TW" && str == "String10")
             {
                 return "提示";
+            }
+            if (language == "zh-TW" && str == "String11")
+            {
+                return "DarkMode已進入後台";
+            }
+            if (language == "zh-TW" && str == "String12")
+            {
+                return "DarkMode已進入後台，設置請右鍵托盤欄圖標。";
             }
             //ja-JP
             if (language == "ja-JP" && str == "String1")
@@ -137,6 +153,14 @@ namespace DarkMode
             {
                 return "ヒント";
             }
+            if (language == "ja-JP" && str == "String11")
+            {
+                return "DarkModeがバックグラウンドになりました";
+            }
+            if (language == "ja-JP" && str == "String12")
+            {
+                return "DarkModeが背景に入ったので、トレイアイコンを右クリックして設定してください。";
+            }
             //en-US
             if (language == "en-US" && str == "String1")
             {
@@ -177,6 +201,14 @@ namespace DarkMode
             if (language == "en-US" && str == "String10")
             {
                 return "Tips";
+            }
+            if (language == "en-US" && str == "String11")
+            {
+                return "DarkMode has gone into the background";
+            }
+            if (language == "en-US" && str == "String12")
+            {
+                return "DarkMode has entered the background, please right-click the tray icon to set.";
             }
             return "null";
         }
@@ -244,6 +276,34 @@ namespace DarkMode
             {
                 return "设置";
             }
+            if (language == "zh-CN" && str == "String16")
+            {
+                return "自定义";
+            }
+            if (language == "zh-CN" && str == "String17")
+            {
+                return "浅色时 Windows 模式";
+            }
+            if (language == "zh-CN" && str == "String18")
+            {
+                return "浅色时应用模式";
+            }
+            if (language == "zh-CN" && str == "String19")
+            {
+                return "深色时 Windows 模式";
+            }
+            if (language == "zh-CN" && str == "String20")
+            {
+                return "深色时应用模式";
+            }
+            if (language == "zh-CN" && str == "String21")
+            {
+                return "浅色";
+            }
+            if (language == "zh-CN" && str == "String22")
+            {
+                return "深色";
+            }
             //zh-TW
             if (language == "zh-TW" && str == "String1")
             {
@@ -304,6 +364,34 @@ namespace DarkMode
             if (language == "zh-TW" && str == "String15")
             {
                 return "設定";
+            }
+            if (language == "zh-TW" && str == "String16")
+            {
+                return "個性化";
+            }
+            if (language == "zh-TW" && str == "String17")
+            {
+                return "淺色時 Windows 模式";
+            }
+            if (language == "zh-TW" && str == "String18")
+            {
+                return "淺色時應用程式模式";
+            }
+            if (language == "zh-TW" && str == "String19")
+            {
+                return "深色時 Windows 模式";
+            }
+            if (language == "zh-TW" && str == "String20")
+            {
+                return "深色時應用程式模式";
+            }
+            if (language == "zh-TW" && str == "String21")
+            {
+                return "淺色";
+            }
+            if (language == "zh-TW" && str == "String22")
+            {
+                return "深色";
             }
             //ja-JP
             if (language == "ja-JP" && str == "String1")
@@ -366,6 +454,34 @@ namespace DarkMode
             {
                 return "設定";
             }
+            if (language == "ja-JP" && str == "String16")
+            {
+                return "自设";
+            }
+            if (language == "ja-JP" && str == "String17")
+            {
+                return "明るい色の Windows モード";
+            }
+            if (language == "ja-JP" && str == "String18")
+            {
+                return "淡色用ソフトウェアモード";
+            }
+            if (language == "ja-JP" && str == "String19")
+            {
+                return "暗闇での Windows モード";
+            }
+            if (language == "ja-JP" && str == "String20")
+            {
+                return "暗いときのソフトウェアモード";
+            }
+            if (language == "ja-JP" && str == "String21")
+            {
+                return "明色";
+            }
+            if (language == "ja-JP" && str == "String22")
+            {
+                return "暗い";
+            }
             //en-US
             if (language == "en-US" && str == "String1")
             {
@@ -417,7 +533,7 @@ namespace DarkMode
             }
             if (language == "en-US" && str == "String13")
             {
-                return "sea...";
+                return "Browse";
             }
             if (language == "en-US" && str == "String14")
             {
@@ -426,6 +542,34 @@ namespace DarkMode
             if (language == "en-US" && str == "String15")
             {
                 return "Settings";
+            }
+            if (language == "en-US" && str == "String16")
+            {
+                return "customize";
+            }
+            if (language == "en-US" && str == "String17")
+            {
+                return "Windows mode in light";
+            }
+            if (language == "en-US" && str == "String18")
+            {
+                return "APP mode when light color";
+            }
+            if (language == "en-US" && str == "String19")
+            {
+                return "Windows mode in dark";
+            }
+            if (language == "en-US" && str == "String20")
+            {
+                return "APP mode when dark";
+            }
+            if (language == "en-US" && str == "String21")
+            {
+                return "Light";
+            }
+            if (language == "en-US" && str == "String22")
+            {
+                return "Dark";
             }
             return null;
         }

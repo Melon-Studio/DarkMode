@@ -2,6 +2,8 @@
 using System;
 using System.Management;
 using System.Windows.Forms;
+using System.Drawing;
+using Microsoft.Toolkit.Uwp.Notifications;
 
 namespace DarkMode
 {
@@ -33,7 +35,12 @@ namespace DarkMode
                     key.SetValue("light_we", "");
                     key.SetValue("dark_ys", "");
                     key.SetValue("dark_we", "");
+                    key.SetValue("win_qs", "true");
+                    key.SetValue("app_qs", "true");
+                    key.SetValue("win_ss", "false");
+                    key.SetValue("app_ss", "false");
                     key.Close();//关闭连接
+                    pan.Close();//关闭连接
                 }
 
             }
@@ -147,11 +154,28 @@ namespace DarkMode
                 key = Registry.CurrentUser.OpenSubKey(@"Software\DarkMode", true);
 
                 string lang = key.GetValue("Language").ToString();
+                key.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(Language.StringText("String8") + ex.Message, Language.StringText("String4"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            //新增功能注册表初始化
+            RegistryKey key2;
+            key2 = Registry.CurrentUser.OpenSubKey(@"Software\DarkMode", true);
+            string[] valueNames = key2.GetValueNames();
+            foreach (string ValueName in valueNames)
+            {
+                if(ValueName != "win_qs")
+                {
+                    key2.SetValue("win_qs", "true");
+                    key2.SetValue("app_qs", "true");
+                    key2.SetValue("win_ss", "false");
+                    key2.SetValue("app_ss", "false");
+                }
+            }
+            key2.Close();
 
             //判断是否设置开机自启
             try
@@ -163,7 +187,7 @@ namespace DarkMode
                     //如果存在启动项，则修改菜单选项为选中状态
                     SelfOnToolStripMenuItem.Checked = true;
                 }
-
+                rk.Close();
             }
             catch
             {
@@ -179,6 +203,13 @@ namespace DarkMode
             //启动计时器和定时器
             timer1.Interval = 1000;
             timer1.Start();
+            //发送通知
+            new ToastContentBuilder()
+                .AddArgument("action", "viewConversation")
+                .AddArgument("conversationId", 9813)
+                .AddText("通知")
+                .AddText("DarkMode运行中，配置请点击DarkMode图标。")
+                .Show();
         }
 
         protected bool getTimeSpan(string timeStr)
@@ -188,6 +219,8 @@ namespace DarkMode
             RegistryKey set2 = set.OpenSubKey(@"Software\DarkMode");
             string start = set2.GetValue("startTime").ToString();
             string finish = set2.GetValue("endTime").ToString();
+            set.Close();
+            set2.Close();
             //判断当前时间是否不在工作时间段内
             string _strWorkingDayAM = start;//非工作时间上午08:00
             string _strWorkingDayPM = finish;//非工作时间下午19:00
@@ -209,6 +242,8 @@ namespace DarkMode
             RegistryKey hkml = Registry.CurrentUser;
             RegistryKey personalize = hkml.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize", true);
             string registDataOne = personalize.GetValue("AppsUseLightTheme").ToString();
+            hkml.Close();
+            personalize.Close();
             //检测当前是什么模式（深色返回true）
             if (registDataOne == "0x00000000")
             {
@@ -223,6 +258,8 @@ namespace DarkMode
             RegistryKey personalize = hkml.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize", true);
             string registDataOne = personalize.GetValue("AppsUseLightTheme").ToString();
             string registDataTwo = personalize.GetValue("SystemUsesLightTheme").ToString();
+            hkml.Close();
+            personalize.Close();
             if (registDataOne != registDataTwo)
             {
                 return true;
@@ -239,23 +276,36 @@ namespace DarkMode
             //判断修改主题色
             if (Now == true)
             {
+                //深色
                 RegistryKey hkml = Registry.CurrentUser;
                 RegistryKey personalize = hkml.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize", true);
-                personalize.SetValue("AppsUseLightTheme", 0x00000000);
-                personalize.SetValue("SystemUsesLightTheme", 0x00000000);
-                //原生壁纸设置
+                
                 RegistryKey key;
                 key = Registry.CurrentUser.OpenSubKey(@"Software\DarkMode", true);
+                //自定义颜色模式
+                if(key.GetValue("win_ss").ToString() == "false")
+                {
+                    personalize.SetValue("SystemUsesLightTheme", 0x00000000);
+                }
+                else
+                {
+                    personalize.SetValue("SystemUsesLightTheme", 0x00000001);
+                }
+                if (key.GetValue("app_ss").ToString() == "false")
+                {
+                    personalize.SetValue("AppsUseLightTheme", 0x00000000);
+                }
+                else
+                {
+                    personalize.SetValue("AppsUseLightTheme", 0x00000001);
+                }
+                //原生壁纸设置
                 string dark_ys = key.GetValue("dark_ys").ToString();
                 RegistryKey key2;
                 key2 = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop", true);
-                string WallPaper = key2.GetValue("WallPaper").ToString();
                 if (dark_ys != "")
                 {
-                    if(WallPaper != dark_ys)
-                    {
-                        key2.SetValue("WallPaper", dark_ys);
-                    }
+                    key2.SetValue("WallPaper", dark_ys);
                 }
                 //Wallpaper Engine壁纸设置
                 RegistryKey key3;
@@ -272,27 +322,44 @@ namespace DarkMode
                         set.SetValue("IsDark", "false");
                     }
                 }
+                hkml.Close();
+                personalize.Close();
+                key.Close();
+                key2.Close();
+                key3.Close();
             }
             else
             {
+                //浅色
                 RegistryKey hkml = Registry.CurrentUser;
                 RegistryKey personalize = hkml.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize", true);
-                personalize.SetValue("AppsUseLightTheme", 0x00000001);
-                personalize.SetValue("SystemUsesLightTheme", 0x00000001);
-
-                //原生壁纸设置
+                
                 RegistryKey key;
                 key = Registry.CurrentUser.OpenSubKey(@"Software\DarkMode", true);
+                //自定义颜色模式
+                if (key.GetValue("win_qs").ToString() == "true")
+                {
+                    personalize.SetValue("SystemUsesLightTheme", 0x00000001);
+                }
+                else
+                {
+                    personalize.SetValue("SystemUsesLightTheme", 0x00000000);
+                }
+                if (key.GetValue("app_qs").ToString() == "true")
+                {
+                    personalize.SetValue("AppsUseLightTheme", 0x00000001);
+                }
+                else
+                {
+                    personalize.SetValue("AppsUseLightTheme", 0x00000000);
+                }
+                //原生壁纸设置
                 string light_ys = key.GetValue("light_ys").ToString();
                 RegistryKey key2;
                 key2 = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop", true);
-                string WallPaper = key2.GetValue("WallPaper").ToString();
                 if (light_ys != "")
                 {
-                    if (WallPaper != light_ys)
-                    {
-                        key2.SetValue("WallPaper", light_ys);
-                    }
+                    key2.SetValue("WallPaper", light_ys);
                 }
                 //Wallpaper Engine壁纸设置
                 RegistryKey key3;
@@ -309,10 +376,22 @@ namespace DarkMode
                         set.SetValue("IsDark", "true");
                     }
                 }
+                hkml.Close();
+                personalize.Close();
+                key.Close();
+                key2.Close();
+                key3.Close();
             }
         }
 
         private void 设置ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form2 = new Form2();
+            form2.Text = Language.Form2Lang("String15");
+            form2.ShowDialog();
+        }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             Form form2 = new Form2();
             form2.Text = Language.Form2Lang("String15");

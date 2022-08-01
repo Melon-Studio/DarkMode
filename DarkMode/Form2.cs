@@ -79,7 +79,21 @@ namespace DarkMode
             button1.Text = Language.Form2Lang("String14");
             button2.Text = Language.Form2Lang("String14");
             button7.Text = Language.Form2Lang("String14");
+            button8.Text = Language.Form2Lang("String14");
             Text = Language.Form2Lang("String15");
+            tabPage4.Text = Language.Form2Lang("String16");
+            groupBox3.Text = Language.Form2Lang("String17");
+            groupBox4.Text = Language.Form2Lang("String18");
+            groupBox5.Text = Language.Form2Lang("String19");
+            groupBox6.Text = Language.Form2Lang("String20");
+            radioButton5.Text = Language.Form2Lang("String21");
+            radioButton8.Text = Language.Form2Lang("String21");
+            radioButton10.Text = Language.Form2Lang("String21");
+            radioButton12.Text = Language.Form2Lang("String21");
+            radioButton6.Text = Language.Form2Lang("String22");
+            radioButton7.Text = Language.Form2Lang("String22");
+            radioButton9.Text = Language.Form2Lang("String22");
+            radioButton11.Text = Language.Form2Lang("String22");
 
 
             //初始化组件获取注册表值
@@ -91,6 +105,7 @@ namespace DarkMode
             textBox2.Text = key.GetValue("dark_ys").ToString();
             textBox3.Text = key.GetValue("light_we").ToString();
             textBox4.Text = key.GetValue("dark_we").ToString();
+            
             if (key.GetValue("SunRiseSet").ToString() == "True")
             {
                 bool x = true;
@@ -120,6 +135,38 @@ namespace DarkMode
             if (key.GetValue("Language").ToString() == "en-US")
             {
                 radioButton4.Checked = true;
+            }
+            if(key.GetValue("win_qs").ToString() == "true")
+            {
+                radioButton5.Checked = true;
+            }
+            else
+            {
+                radioButton6.Checked = true;
+            }
+            if (key.GetValue("app_qs").ToString() == "true")
+            {
+                radioButton8.Checked = true;
+            }
+            else
+            {
+                radioButton7.Checked = true;
+            }
+            if (key.GetValue("win_ss").ToString() == "false")
+            {
+                radioButton9.Checked = true;
+            }
+            else
+            {
+                radioButton10.Checked = true;
+            }
+            if (key.GetValue("app_ss").ToString() == "false")
+            {
+                radioButton11.Checked = true;
+            }
+            else
+            {
+                radioButton12.Checked = true;
             }
             key.Close();
         }
@@ -255,15 +302,19 @@ namespace DarkMode
             IPAddress iP = new IPAddress();
             SunTimeResult result = SunTimes.GetSunTime(DateTime.Now, double.Parse(Longitude.ToString()), double.Parse(Latitude.ToString()));
             RegistryKey set = Registry.CurrentUser.OpenSubKey(@"Software\DarkMode", true);
-            await Task.Run(() =>
+            try
             {
-                label5.Text = StringText("String3") + Longitude.ToString() + "\n" + StringText("String4") + Latitude.ToString() + "\n" + "IP: " + iP.IP() + "\n" + StringText("String6") + iP.Address();
-                watcher.Dispose();
-                set.SetValue("startTime", result.SunriseTime.ToString("HH:mm:ss"));
-                set.SetValue("endTime", result.SunsetTime.ToString("HH:mm:ss"));
-                dateTimePicker1.Text = set.GetValue("startTime").ToString();
-                dateTimePicker2.Text = set.GetValue("endTime").ToString();
-            });
+                await Task.Run(() =>
+                {
+                    label5.Text = StringText("String3") + Longitude.ToString() + "\n" + StringText("String4") + Latitude.ToString() + "\n" + "IP: " + iP.IP() + "\n" + StringText("String6") + iP.Address();
+                    watcher.Dispose();
+                    set.SetValue("startTime", result.SunriseTime.ToString("HH:mm:ss"));
+                    set.SetValue("endTime", result.SunsetTime.ToString("HH:mm:ss"));
+                    dateTimePicker1.Text = set.GetValue("startTime").ToString();
+                    dateTimePicker2.Text = set.GetValue("endTime").ToString();
+                });
+            }
+            catch { }
         }
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
@@ -372,5 +423,51 @@ namespace DarkMode
         {
             Process.Start("explorer.exe", "https://github.com/Melon-Studio/DarkMode/wiki/wallpaper-engine%E5%A3%81%E7%BA%B8%E8%AE%BE%E7%BD%AE");
         }
+
+        //自定义模式设置
+        private void button8_Click(object sender, EventArgs e)
+        {
+            RegistryKey key;
+            key = Registry.CurrentUser.OpenSubKey(@"Software\DarkMode", true);
+            //windows模式（浅色）
+            if (radioButton5.Checked == true)
+            {
+                key.SetValue("win_qs", "true");
+            }
+            else
+            {
+                key.SetValue("win_qs", "false");
+            }
+            //App模式（浅色）
+            if (radioButton8.Checked == true)
+            {
+                key.SetValue("app_qs", "true");
+            }
+            else
+            {
+                key.SetValue("app_qs", "false");
+            }
+            //windows模式（深色）
+            if (radioButton9.Checked == true)
+            {
+                key.SetValue("win_ss", "false");
+            }
+            else
+            {
+                key.SetValue("win_ss", "true");
+            }
+            //App模式（深色）
+            if (radioButton11.Checked == true)
+            {
+                key.SetValue("app_ss", "false");
+            }
+            else
+            {
+                key.SetValue("app_ss", "true");
+            }
+        }
+
+        
+
     }
 }
