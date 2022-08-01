@@ -195,11 +195,11 @@ namespace DarkMode
             }
 
             //判断系统主题是否为自定义模式
-            bool judge = judgeSystemColor();
-            if (judge == true)
-            {
-                MessageBox.Show(Language.StringText("String9"), Language.StringText("String10"), MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            //bool judge = judgeSystemColor();
+            //if (judge == true)
+            //{
+            //    MessageBox.Show(Language.StringText("String9"), Language.StringText("String10"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
             //启动计时器和定时器
             timer1.Interval = 1000;
             timer1.Start();
