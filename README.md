@@ -1,3 +1,4 @@
+# 本仓库已进入只读模式，点击右侧链接转到DarkMode2仓库，https://github.com/Melon-Studio/DarkMode2
 # 🌙DarkMode
 
 ![](https://shields.io/badge/license-MIT-green) ![](https://img.shields.io/github/stars/Melon-Studio/DarkMode) ![](https://img.shields.io/github/issues/Melon-Studio/DarkMode) ![](https://img.shields.io/github/forks/Melon-Studio/DarkMode)
